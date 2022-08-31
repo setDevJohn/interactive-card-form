@@ -1,0 +1,56 @@
+
+.container{
+    display: flex;
+    height: 100vh;
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    position: relative;
+    background: url("../images/bg-main-desktop.png") center no-repeat;
+    background-size: cover;
+    width: 30%;
+}
+
+.cards .card{
+    position: absolute;
+    color: #ffffff;
+    width: 291px;
+    height: 161px;
+    padding: 23px;
+}
+
+.cards .card.front{
+    right: -90px;
+    top: 32%;
+    transform: translateY(-50%);
+    background: url("../images/bg-card-front.png") center no-repeat;
+    background-size: contain;
+}
+
+.cards .card.back{
+    right: -145px;
+    bottom: 18%;
+    transform: translateX();
+    background: url("../images/bg-card-back.png ") center no-repeat;
+    background-size: contain;
+}
+
+.card-from{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.card-from .card-details{
+    background-color: aquamarine;
+}
+
+.card-from .completed-state{
+    display: none;
+}
