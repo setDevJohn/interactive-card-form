@@ -15,9 +15,9 @@
 
   <main class="container">
     <section class="cards">
-      <img src="" alt="">
-
       <div class="card front">
+        <img src="src/images/card-logo.svg" alt="Logo" class="logo">
+
         <div class="number">
           <span>0000 0000 0000 0000</span>
         </div>
@@ -33,7 +33,7 @@
       </div>
     </section>
 
-    <section class="card-from">
+    <section class="card-form">
       <div class="card-details">
         <form action="" class="form">
           <p>Cardholder Name</p>
@@ -48,8 +48,10 @@
             <input type="number" placeholder="YY"></input>
           </div>
           
-          <p>CVC</p>
-          <input type="number" placeholder="e.g. 123">
+          <div class="cvc">
+            <p>CVC</p>
+            <input type="number" placeholder="e.g. 123">
+          </div>
         </form>
 
         <button type="button" id="btn-confirm" class="btn-confirm">
@@ -58,7 +60,7 @@
       </div>
 
       <div class="completed-state">
-        <img class="completed-image" src="" alt="">
+        <img class="completed-image" src="src/images/icon-complete.svg" alt="Ícone completo">
   
         <div class="info">
           <h1 class="title">Thank you!</h1>

@@ -1,14 +1,15 @@
 
 .container{
     display: flex;
-    height: 100vh;
+    height: 665px;
+    max-width: 1440px;
+    margin: auto;
 }
 
 .cards{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 25px;
     position: relative;
     background: url("../images/bg-main-desktop.png") center no-repeat;
     background-size: cover;
@@ -18,28 +19,54 @@
 .cards .card{
     position: absolute;
     color: #ffffff;
-    width: 291px;
-    height: 161px;
-    padding: 23px;
+    box-shadow: 5px 0px 15px #645d5d64;
+    border-radius: 3%;
+    width: 339px;
+    height: 186px;
 }
 
 .cards .card.front{
+    display: flex;
+    flex-direction: column;
     right: -90px;
-    top: 32%;
+    top: 35%;
     transform: translateY(-50%);
     background: url("../images/bg-card-front.png") center no-repeat;
     background-size: contain;
+    padding: 20px 32px;
+}
+
+.cards .card.front .logo{
+    width: 75px;
+}
+
+.cards .card.front .number{
+    font-size: 2.5rem;
+    margin: 50px 0 10px 0;
+}
+
+.cards .card.front .card-info{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    width: 100%;
 }
 
 .cards .card.back{
-    right: -145px;
-    bottom: 18%;
-    transform: translateX();
+    right: -150px;
+    bottom: 19%;
     background: url("../images/bg-card-back.png ") center no-repeat;
     background-size: contain;
 }
 
-.card-from{
+.cards .card.back span{
+    position: absolute;
+    right: 45px;
+    top: 83px;
+    font-size: 1.3rem;
+}
+
+.card-form{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,10 +74,76 @@
     width: 70%;
 }
 
-.card-from .card-details{
-    background-color: aquamarine;
+.card-details .form{
+    width: 365px;
 }
 
-.card-from .completed-state{
+.card-details .form p{
+    font-size: 1.4rem;
+}
+
+.card-details .form input{
+    font-size: 1.5rem;
+    border-radius: 7px;
+    border: solid 1px rgb(200, 196, 196);
+    padding: 12px;
+    margin: 6px 0 24px 0;
+    width: 100%;
+}
+
+.card-details .form .date,
+.card-details .form .cvc{
+    display: inline-block;
+    width: 49%;
+}
+
+.card-details .form .cvc{
+    margin-left: 3px;
+}
+
+.card-details .form .date input{
+    margin-right: 4px;
+    width: 45%;
+}
+
+.card-form .card-details .btn-confirm,
+.card-form .completed-state .btn-continue{
+    background-color: #21092f;
+    color: #ffffff;
+    font-size: 1.7rem;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.card-form .completed-state.show{
+    display: flex;
+}
+
+.card-form .completed-state{
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 300px;
+    width: 365px;
+}
+
+.card-form .completed-state .completed-image{
+    width: 80px;
+}
+
+.card-form .completed-state .info{
+    text-align: center;
+}
+
+.card-form .completed-state .info .title{
+    font-size: 3rem;
+    margin-bottom: 13px;
+}
+
+.card-form .completed-state .info .message{
+    color: #6b6670;
+    font-size: 1.7rem;
 }
