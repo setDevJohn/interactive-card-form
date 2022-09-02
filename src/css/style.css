@@ -82,12 +82,13 @@
     font-size: 1.4rem;
 }
 
+
 .card-details .form input{
     font-size: 1.5rem;
     border-radius: 7px;
     border: solid 1px rgb(200, 196, 196);
+    margin-bottom: 3px;
     padding: 12px;
-    margin: 6px 0 24px 0;
     width: 100%;
 }
 
@@ -101,7 +102,8 @@
     margin-left: 3px;
 }
 
-.card-details .form .date input{
+.card-details .form .date .verification{
+    display: inline-block;
     margin-right: 4px;
     width: 45%;
 }
@@ -115,6 +117,32 @@
     padding: 15px;
     margin-top: 15px;
     width: 100%;
+}
+
+.card-details .verification{
+    padding: 6px 0 25px 0;
+}
+
+.card-details .span-blank,
+.card-details .span-wrong{
+    display: none;
+}
+
+.card-details .verification.blank,
+.card-details .verification.wrong-format{
+    padding: 6px 0 11px 0;
+}
+
+.card-details .verification.blank input,
+.card-details .verification.wrong-format input{
+    border-color: #ff5252;
+}
+
+.card-details .verification.blank .span-blank,
+.card-details .verification.wrong-format .span-wrong{
+    display: block;
+    font-size: 1.1rem;
+    color: #ff5252;
 }
 
 .card-form .completed-state.show{
@@ -146,4 +174,21 @@
 .card-form .completed-state .info .message{
     color: #6b6670;
     font-size: 1.7rem;
+}
+
+.attribution {
+    background-image:linear-gradient(to right,#600594,#ffffff, #ffffff, #ffffff,#600594);
+    border-radius: 0 0 7px 7px;
+    font-size: 1.4rem;
+    text-align: center;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.attribution a{
+    color: #600594;
+}
+
+.attribution a:hover{
+    text-decoration: underline;
 }
