@@ -1,11 +1,4 @@
 
-/*
-    - Error blank puxando no botão
-    - Se estiver de acordo colocar uma variáve de controle correto
-    - Juntar oque der
-    - Se todas variáveis de controle estiverem corretas colocar página de continue 
-*/
-
 const form = document.querySelector("form")
 const inputs = document.querySelectorAll("input")
 const inputsNumbers = [inputs[2], inputs[3], inputs[4]]
@@ -71,6 +64,14 @@ function clearCard() {
     })
 }
 
+form.addEventListener("change", ()=>{
+    if (cardHolder.classList == "activated" && cardNumber.classList == "activated" && month.classList == "activated" && year.classList == "activated" && cvc.classList == "activated"){
+        btnConfirm.classList.remove("disabled")
+    }else{
+        btnConfirm.classList.add("disabled")
+    }
+})
+
 cardNumber.addEventListener('keypress', ()=>{
     let numberLength = cardNumber.value.length
 
@@ -88,11 +89,11 @@ btnConfirm.addEventListener("click", ()=>{
 btnContinue.addEventListener("click", ()=>{
     clearCard()
     formComplete.style.display = "none"
-    formData.style.display = "block"
+    formData.style.display = "flex"
 })
 
 inputs.forEach((input) =>{
-    input.addEventListener("change", (target)=>{
+    input.addEventListener("input", (target)=>{
         if (!input.value){
             target.path[1].classList.add("error-blank")
             input.classList.remove("activated")
@@ -115,7 +116,6 @@ cardNumber.addEventListener("change", ()=>{
     }else{
         fields[1].classList.remove("error-wrong")
         cardNumber.classList.add("activated")
-        cardNumber.style.borderColor ='#6448fe'
     }    
 })
 
@@ -128,15 +128,6 @@ inputsNumbers.forEach((input) =>{
         }else{
             target.path[1].classList.remove("error-wrong")
             input.classList.add("activated")
-            input.style.borderColor ='#6448fe'
         }
     })
-})
-
-form.addEventListener("change", ()=>{
-    if (cardHolder.classList == "activated" && cardNumber.classList == "activated" && month.classList == "activated" && year.classList == "activated" && cvc.classList == "activated"){
-        btnConfirm.classList.remove("disabled")
-    }else{
-        btnConfirm.classList.add("disabled")
-    }
 })
