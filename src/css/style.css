@@ -1,6 +1,6 @@
 .container{
     display: flex;
-    height: 665px;
+    height: 700px;
     max-width: 1440px;
     margin: auto;
 }
@@ -27,7 +27,7 @@
     display: flex;
     flex-direction: column;
     right: -90px;
-    top: 35%;
+    bottom: 35%;
     transform: translateY(-50%);
     background: url("../images/bg-card-front.png") center no-repeat;
     background-size: contain;
@@ -39,7 +39,7 @@
 .cards .card.front .number{
     text-align: center;
     font-size: 2.5rem;
-    margin: 50px 0 10px 0;
+    margin: 45px 0 10px 0;
 }
 .cards .card.front .card-info{
     display: flex;
@@ -63,13 +63,17 @@
 
 .card-form{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
     width: 70%;
 }
+.form-data{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 .form-data .form{
     width: 365px;
+
 }
 .form-data .fields{
     padding: 6px;
@@ -145,7 +149,7 @@
     align-items: center;
     justify-content: space-between;
     height: 300px;
-    width: 365px;
+    width: 100%;
 }
 .card-form .completed-state .completed-image{
     width: 80px;
@@ -161,18 +165,6 @@
     color: #6b6670;
     font-size: 1.7rem;
 }
-
-.attribution {
-    background-image:linear-gradient(to right,#600594,#ffffff, #ffffff, #ffffff,#600594);
-    border-radius: 0 0 7px 7px;
-    font-size: 1.4rem;
-    text-align: center;
-    max-width: 1440px;
-    margin: 0 auto;
-}
-.attribution a{
-    color: #600594;
-}
-.attribution a:hover{
-    text-decoration: underline;
+.card-form .completed-state .btn-continue{
+    width: 300px;   
 }

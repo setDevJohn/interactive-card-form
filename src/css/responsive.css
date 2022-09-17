@@ -1,0 +1,134 @@
+@media (max-width: 1050px) {
+    
+    .form-data{
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 60px;
+    }
+}
+
+@media (max-width: 845px) {
+    
+    html{
+        font-size: 61%;
+    }
+
+    .container{
+        flex-direction: column;
+    }
+
+    .cards{
+        width: 100%;
+        height: 265px;
+    }
+    .cards .card.front{
+        z-index: 1;
+        bottom: -20%;
+        left: 50%;
+        transform: translateX(-60%);
+    }
+    .cards .card.back{
+        left: 50%;
+        transform: translateX(-40%);
+    }
+
+    .card-form{
+        width: 100%;
+    }
+    .form-data{
+        justify-content: center;
+        margin: 95px 0 0 0;
+    }
+
+    .card-form .completed-state {
+        margin-top: 76px;
+        height: 260px;
+    }
+}
+
+@media (max-width: 430px){
+
+    .cards .card{
+        width: 285px;
+        height: 165px;
+    }
+    .cards .card.front{
+        background-size: cover;
+        bottom: -16%;
+        padding: 6px;
+    }
+    .cards .card.front .number{
+        margin: 40px 0 10px 0;
+    }
+    .cards .card.back{
+        background-size: cover;
+    }
+    .cards .card.back span{
+        right: 31px;
+        top: 74px;
+    }
+
+    .form-data{
+        justify-content: center;
+        margin: 70px 0 0 0;
+    }
+    .form-data .form {
+        width: 354px;
+    }
+
+    .card-form .completed-state {
+        margin-top: 65px;
+        height: 235px;
+    }
+    .card-form .completed-state .completed-image{
+        width: 65px;
+    }
+    .card-form .completed-state .info .title{
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    .card-form .completed-state .info .message{
+        font-size: 1.5rem;
+    }
+    .card-form .completed-state .btn-continue{
+        width: 270px;   
+    }
+}
+
+@media (max-width: 374px){
+    html{
+        font-size: 60%;
+    }
+
+    .cards .card{
+        width: 244px;
+        height: 154px;
+    }
+    .cards .card.front{
+        padding: 10px;
+        bottom: -14%;
+    }
+    .cards .card.front .number{
+        font-size: 2.1rem;
+        margin: 35px 0 10px 0;
+    }
+    .cards .card.back span{
+        right: 22px;
+        top: 69px;
+    }
+
+    .form-data{
+        padding: 7px;
+        margin: 56px auto 0 auto;
+        max-width: 340px;
+    }
+    .form-data .form .date-and-cvc .due-date {
+        width: 55%;
+    }
+    .form-data .form .date-and-cvc .due-date input{
+        width: 60px
+    }
+    .form-data .form .date-and-cvc .cvc {
+        width: 45%;
+    }
+}
