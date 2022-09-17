@@ -1,107 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Interactive card details form">
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon-32x32.png">
-  <link rel="stylesheet" href="src/css/reset.css">
-  <link rel="stylesheet" href="src/css/style.css">
 
-  <title>Frontend Mentor | Interactive card details form</title>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Interactive card details form">
+
+   <link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon-32x32.png">
+   <link rel="stylesheet" href="src/css/reset.css">
+   <link rel="stylesheet" href="src/css/style.css">
+
+   <title>Frontend Mentor | Interactive card details form</title>
 </head>
+
 <body>
 
-  <main class="container">
-    <section class="cards">
-      <div class="card front">
-        <img src="src/images/card-logo.svg" alt="Logo" class="logo">
+   <main class="container">
+      <section class="cards">
+         <div class="card front">
+            <img src="src/images/card-logo.svg" alt="Logo" class="logo">
 
-        <div class="number">
-          <span>0000 0000 0000 0000</span>
-        </div>
-
-        <div class="card-info">
-          <span>Jane Appleseed</span>
-          <span>00/00</span>
-        </div>
-      </div>
-
-      <div class="card back">
-        <span>000</span>
-      </div>
-    </section>
-
-    <section class="card-form">
-      <div class="card-details">
-        <form action="" class="form">
-
-          <p>Cardholder Name</p>
-          <div class="verification">
-            <input type="text" placeholder="e.g. Jane Appleseed"></input>
-            <span class="span-blank">Can't be blank!</span>
-          </div>
-        
-          <p>Card Number</p>
-          <div class="verification blank">
-            <input type="number" placeholder="e.g. 1234 5678 9123 0000"></input>
-            <span class="span-blank">Can't be blank!</span>
-            <span class="span-wrong">Wrong format, numbers only</span>
-          </div>
-          
-          <div class="date">
-            <p>Exp. Date (MM/YY)</p>
-            <div class="verification">
-              <input type="number" placeholder="MM"></input>
-              <span class="span-blank">Can't be blank!</span>
-              <span class="span-wrong">Wrong format, numbers only</span>
+            <div class="number">
+               <span id="front-card-number">0000 0000 0000 0000</span>
             </div>
 
-            <div class="verification">
-              <input type="number" placeholder="YY"></input>
-              <span class="span-blank">Can't be blank!</span>
-              <span class="span-wrong">Wrong format, numbers only</span>
+            <div class="card-info">
+               <span id="front-card-name">Jane Appleseed</span>
+               <div class="date">
+                  <span id="card-date-month">00</span>
+                  <span>/</span>
+                  <span id="card-date-year">00</span>
+               </div>
             </div>
-          </div>
-          
-          <div class="cvc">
-            <p>CVC</p>
-            <div class="verification">
-              <input type="number" placeholder="e.g. 123">
-              <span class="span-blank">Can't be blank!</span>
-              <span class="span-wrong">Wrong format, numbers only</span>
+         </div>
+
+         <div class="card back">
+            <span id="card-cvc">000</span>
+         </div>
+      </section>
+
+      <section class="card-form">
+         <div class="form-data">
+            <form action="#" method="post" class="form" id="form">
+
+               <div class="fields">
+                  <label>Cardholder Name</label>
+                  <input type="text" name="cardholder-name" id="cardholder-name" placeholder="ex. Jane Appleseed" required></input>
+                  <div class="blank"> Can't be blank! </div>
+               </div>
+
+               <div class="fields">
+                  <label>Card Number</label>
+                  <input type="text" name="number" id="card-number" maxlength="19" placeholder="ex. 1234 5678 9123 0000" required ></input>
+                  <div class="blank"> Can't be blank! </div>
+                  <div class="wrong"> Wrong format, numbers only </div>
+               </div>
+
+               <div class="date-and-cvc">
+                  <div class="due-date">
+                     <label>Exp. Date (MM/YY)</label>
+                     <div class="month-year">
+                        <div class="fields">
+                           <input type="text" name="date-month" id="date-month" placeholder="MM" maxlength="2" required></input>
+                           <div class="blank"> Can't be blank! </div>
+                           <div class="wrong"> Wrong format, numbers only </div>
+                        </div>
+                        <div class="fields">
+                           <input type="text" name="date-year" id="date-year" placeholder="YY" maxlength="2" required></input>
+                           <div class="blank"> Can't be blank! </div>
+                           <div class="wrong"> Wrong format, numbers only </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="cvc">
+                     <label>CVC</label>
+                     <div class="fields">
+                        <input type="text" name="cvc" id="cvc" placeholder="ex. 123" maxlength="3" required>
+                        <div class="blank"> Can't be blank! </div>
+                        <div class="wrong"> Wrong format, numbers only </div>
+                     </div>
+                  </div>
+               </div>
+
+               <button type="submit" id="btn-confirm" class="btn-confirm disabled"> Confirm </button>
+            </form>
+
+         </div>
+
+         <div class="completed-state">
+            <img class="completed-image" src="src/images/icon-complete.svg" alt="Ícone completo">
+
+            <div class="info">
+               <h1 class="title"> Thank you! </h1>
+               <p class="message"> We've added your card details </p>
             </div>
-          </div>
-        </form>
 
-        <button type="button" id="btn-confirm" class="btn-confirm">
-          Confirm
-        </button>
-      </div>
+            <button type="button" id="btn-continue" class="btn-continue"> Continue </button>
+         </div>
+      </section>
+   </main>
 
-      <div class="completed-state">
-        <img class="completed-image" src="src/images/icon-complete.svg" alt="Ícone completo">
-  
-        <div class="info">
-          <h1 class="title">Thank you!</h1>
-          <p class="message">
-            We've added your card details
-          </p>
-        </div>
-        
-        <button type="button" id="btn-continue" class="btn-continue">
-          Continue
-        </button>
-      </div>
-    </section>
-  </main>
-  
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="https://github.com/jhonyfreitasdev">Jhony Freitas</a>.
-  </footer>
+   <footer class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/jhonyfreitasdev">Jhony Freitas</a>.
+   </footer>
 
-  <script src="src/js/index.js"></script>
+   <script src="src/js/index.js"></script>
 </body>
+
 </html>

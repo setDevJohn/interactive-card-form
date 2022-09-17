@@ -1,4 +1,3 @@
-
 .container{
     display: flex;
     height: 665px;
@@ -15,7 +14,6 @@
     background-size: cover;
     width: 30%;
 }
-
 .cards .card{
     position: absolute;
     color: #ffffff;
@@ -33,18 +31,16 @@
     transform: translateY(-50%);
     background: url("../images/bg-card-front.png") center no-repeat;
     background-size: contain;
-    padding: 20px 32px;
+    padding: 20px;
 }
-
 .cards .card.front .logo{
     width: 75px;
 }
-
 .cards .card.front .number{
+    text-align: center;
     font-size: 2.5rem;
     margin: 50px 0 10px 0;
 }
-
 .cards .card.front .card-info{
     display: flex;
     justify-content: space-between;
@@ -58,7 +54,6 @@
     background: url("../images/bg-card-back.png ") center no-repeat;
     background-size: contain;
 }
-
 .cards .card.back span{
     position: absolute;
     right: 45px;
@@ -73,17 +68,16 @@
     align-items: center;
     width: 70%;
 }
-
-.card-details .form{
+.form-data .form{
     width: 365px;
 }
-
-.card-details .form p{
+.form-data .fields{
+    padding: 6px;
+}
+.form-data .form label{
     font-size: 1.4rem;
 }
-
-
-.card-details .form input{
+.form-data .form input{
     font-size: 1.5rem;
     border-radius: 7px;
     border: solid 1px rgb(200, 196, 196);
@@ -91,24 +85,38 @@
     padding: 12px;
     width: 100%;
 }
-
-.card-details .form .date,
-.card-details .form .cvc{
-    display: inline-block;
-    width: 49%;
+.form-data .form input:focus{
+    outline: none;
+}
+.form-data .form input.activated{
+    border-color:  #6448fe;
 }
 
-.card-details .form .cvc{
-    margin-left: 3px;
+.form-data .form .date-and-cvc{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+}
+.form-data .form .date-and-cvc input{
+    width: 91px;
+}
+.form-data .form .date-and-cvc label{
+    padding-left: 6px;
+}
+.form-data .form .date-and-cvc .due-date{
+    width: 55%;
+}
+.form-data .form .date-and-cvc .due-date .month-year{
+    display: flex;
+    justify-content: flex-start;
 }
 
-.card-details .form .date .verification{
-    display: inline-block;
-    margin-right: 4px;
-    width: 45%;
+.card-form .form-data .btn-confirm.disabled{
+    pointer-events: none;
+    opacity: 0.85;
 }
-
-.card-form .card-details .btn-confirm,
+.card-form .form-data .btn-confirm,
 .card-form .completed-state .btn-continue{
     background-color: #21092f;
     color: #ffffff;
@@ -119,34 +127,20 @@
     width: 100%;
 }
 
-.card-details .verification{
-    padding: 6px 0 25px 0;
-}
-
-.card-details .span-blank,
-.card-details .span-wrong{
+.form-data .fields .blank,
+.form-data .fields .wrong{
     display: none;
-}
-
-.card-details .verification.blank,
-.card-details .verification.wrong-format{
-    padding: 6px 0 11px 0;
-}
-
-.card-details .verification.blank input,
-.card-details .verification.wrong-format input{
-    border-color: #ff5252;
-}
-
-.card-details .verification.blank .span-blank,
-.card-details .verification.wrong-format .span-wrong{
-    display: block;
     font-size: 1.1rem;
     color: #ff5252;
+    padding: 6px 0 0 6px;
 }
-
-.card-form .completed-state.show{
-    display: flex;
+.form-data .fields.error-blank input,
+.form-data .fields.error-wrong input{
+    border-color: #ff5252;;
+}
+.form-data .fields.error-blank .blank,
+.form-data .fields.error-wrong .wrong{
+    display: block;
 }
 
 .card-form .completed-state{
@@ -157,20 +151,16 @@
     height: 300px;
     width: 365px;
 }
-
 .card-form .completed-state .completed-image{
     width: 80px;
 }
-
 .card-form .completed-state .info{
     text-align: center;
 }
-
 .card-form .completed-state .info .title{
     font-size: 3rem;
     margin-bottom: 13px;
 }
-
 .card-form .completed-state .info .message{
     color: #6b6670;
     font-size: 1.7rem;
@@ -184,11 +174,9 @@
     max-width: 1440px;
     margin: 0 auto;
 }
-
 .attribution a{
     color: #600594;
 }
-
 .attribution a:hover{
     text-decoration: underline;
 }
