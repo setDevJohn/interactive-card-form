@@ -80,7 +80,7 @@
 .form-data .form input{
     font-size: 1.5rem;
     border-radius: 7px;
-    border: solid 1px rgb(200, 196, 196);
+    border: solid 1px #c8c4c4;
     margin-bottom: 3px;
     padding: 12px;
     width: 100%;
@@ -88,15 +88,12 @@
 .form-data .form input:focus{
     outline: none;
 }
-.form-data .form input.activated{
-    border-color:  #6448fe;
-}
 
 .form-data .form .date-and-cvc{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 15px;
+    gap: 5px;
 }
 .form-data .form .date-and-cvc input{
     width: 91px;
@@ -104,8 +101,11 @@
 .form-data .form .date-and-cvc label{
     padding-left: 6px;
 }
+.form-data .form .date-and-cvc .cvc{
+    width: 30%;
+}
 .form-data .form .date-and-cvc .due-date{
-    width: 55%;
+    width: 70%;
 }
 .form-data .form .date-and-cvc .due-date .month-year{
     display: flex;
@@ -133,10 +133,6 @@
     font-size: 1.1rem;
     color: #ff5252;
     padding: 6px 0 0 6px;
-}
-.form-data .fields.error-blank input,
-.form-data .fields.error-wrong input{
-    border-color: #ff5252;;
 }
 .form-data .fields.error-blank .blank,
 .form-data .fields.error-wrong .wrong{

@@ -33,18 +33,6 @@ form.addEventListener('submit', (event)=>{
     event.preventDefault(); 
 })    
 
-inputs.forEach((input) =>{
-    input.addEventListener("input", (target)=>{
-        if (!input.value){
-            target.path[1].classList.add("error-blank")
-            input.classList.remove("activated")
-        }else{
-            target.path[1].classList.remove("error-blank") 
-            input.classList.add("activated")
-        }
-    })
-})
-
 function updateCardStatus() {
     cardHolder.addEventListener("change", () => {
         frontCardName.innerHTML = cardHolder.value
@@ -79,6 +67,7 @@ function clearCard() {
     inputs.forEach((input) =>{
         input.value = ""
         input.classList.remove("activated")
+        input.style.borderColor ="#c8c4c4"
     })
 }
 
@@ -102,13 +91,31 @@ btnContinue.addEventListener("click", ()=>{
     formData.style.display = "block"
 })
 
+inputs.forEach((input) =>{
+    input.addEventListener("change", (target)=>{
+        if (!input.value){
+            target.path[1].classList.add("error-blank")
+            input.classList.remove("activated")
+            input.style.borderColor ='#ff5252'
+        }else{
+            target.path[1].classList.remove("error-blank") 
+            input.classList.add("activated")
+            input.style.borderColor ='#6448fe'
+        }
+    })
+})
+
 cardNumber.addEventListener("change", ()=>{
     const regex = /[a-z]/
     const numberTest = regex.test(cardNumber.value)
     if (numberTest){
         fields[1].classList.add("error-wrong")
+        cardNumber.classList.remove("activated")
+        cardNumber.style.borderColor ='#ff5252'
     }else{
         fields[1].classList.remove("error-wrong")
+        cardNumber.classList.add("activated")
+        cardNumber.style.borderColor ='#6448fe'
     }    
 })
 
@@ -116,13 +123,17 @@ inputsNumbers.forEach((input) =>{
     input.addEventListener("change", (target)=>{
         if (isNaN(input.value)) {
             target.path[1].classList.add("error-wrong")
+            input.classList.remove("activated")
+            input.style.borderColor ='#ff5252'
         }else{
             target.path[1].classList.remove("error-wrong")
+            input.classList.add("activated")
+            input.style.borderColor ='#6448fe'
         }
     })
 })
 
-form.addEventListener("input", ()=>{
+form.addEventListener("change", ()=>{
     if (cardHolder.classList == "activated" && cardNumber.classList == "activated" && month.classList == "activated" && year.classList == "activated" && cvc.classList == "activated"){
         btnConfirm.classList.remove("disabled")
     }else{
