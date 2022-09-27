@@ -1,84 +1,89 @@
 
-const form = document.querySelector("form")
+const cardForm = document.querySelector("form")
 const inputs = document.querySelectorAll("input")
 const inputsNumbers = [inputs[2], inputs[3], inputs[4]]
 const fields = document.querySelectorAll(".fields")
 const btnConfirm = document.getElementById("btn-confirm")
 const btnContinue = document.getElementById("btn-continue")
-const formComplete = document.getElementsByClassName("completed-state")[0]
 const formData = document.getElementsByClassName("form-data")[0]
+const formComplete = document.getElementsByClassName("completed-state")[0]
 
-const cardHolder = document.getElementById("cardholder-name")
-const cardNumber = document.getElementById("card-number")
-const month = document.getElementById("date-month")
-const year = document.getElementById("date-year")
-const cvc = document.getElementById("cvc")
+console.log(formComplete);
 
-let frontCardYear = document.getElementById("card-date-year")
-let frontCardMonth = document.getElementById("card-date-month")
-let frontCardNumber = document.getElementById("front-card-number")
-let frontCardName = document.getElementById("front-card-name")
-let backCardCvc = document.getElementById("card-cvc")
+const form = {
+    name : document.getElementById("cardholder-name"),
+    number : document.getElementById("card-number"),
+    month : document.getElementById("date-month"),
+    year : document.getElementById("date-year"),
+    cvc : document.getElementById("cvc")
+}
+
+const card = {
+    number : document.getElementById("front-card-number"),
+    name : document.getElementById("front-card-name"),
+    month : document.getElementById("card-date-month"),
+    year : document.getElementById("card-date-year"),
+    cvc : document.getElementById("card-cvc")
+}
 
 updateCardStatus()
 
-form.addEventListener('submit', (event)=>{
+cardForm.addEventListener('submit', (event)=>{
     event.preventDefault(); 
-})    
+})   
 
-function updateCardStatus() {
-    cardHolder.addEventListener("change", () => {
-        frontCardName.innerHTML = cardHolder.value
-    })
-
-    cardNumber.addEventListener("change", () => {
-        frontCardNumber.innerHTML = cardNumber.value
-    })
-
-    month.addEventListener("change", () => {
-        frontCardMonth.innerHTML = month.value
-    })
-
-    year.addEventListener("change", () => {
-        frontCardYear.innerHTML = year.value
-    })
-
-    cvc.addEventListener("change", () => {
-        backCardCvc.innerHTML = cvc.value
-    })
-}
-
-function clearCard() {
-    frontCardName.innerHTML = "Jane Appleseed"
-    frontCardNumber.innerHTML = "0000 0000 0000 0000"
-    frontCardMonth.innerHTML = "00"
-    frontCardYear.innerHTML = "00"
-    backCardCvc.innerHTML = "000"
-
-    btnConfirm.classList.add("disabled")
-
-    inputs.forEach((input) =>{
-        input.value = ""
-        input.classList.remove("activated")
-        input.style.borderColor ="#c8c4c4"
-    })
-}
-
-form.addEventListener("change", ()=>{
-    if (cardHolder.classList == "activated" && cardNumber.classList == "activated" && month.classList == "activated" && year.classList == "activated" && cvc.classList == "activated"){
+cardForm.addEventListener("change", ()=>{
+    if (form.name.classList == "activated" && form.number.classList == "activated" && form.month.classList == "activated" && form.year.classList == "activated" && form.cvc.classList == "activated"){
         btnConfirm.classList.remove("disabled")
     }else{
         btnConfirm.classList.add("disabled")
     }
 })
 
-cardNumber.addEventListener('keypress', ()=>{
-    let numberLength = cardNumber.value.length
+function updateCardStatus() {
+    form.number.addEventListener("change", () => {
+        card.number.innerHTML = form.number.value
+    })
+
+    form.name.addEventListener("change", () => {
+        card.name.innerHTML = form.name.value
+    })
+
+    form.month.addEventListener("change", () => {
+        card.month.innerHTML = form.month.value
+    })
+
+    form.year.addEventListener("change", () => {
+        card.year.innerHTML = form.year.value
+    })
+
+    form.cvc.addEventListener("change", () => {
+        card.cvc.innerHTML = form.cvc.value
+    })
+}
+
+function clearCard() {
+    card.name.innerHTML = "Jane Appleseed"
+    card.number.innerHTML = "0000 0000 0000 0000"
+    card.month.innerHTML = "00"
+    card.year.innerHTML = "00"
+    card.cvc.innerHTML = "000"
+
+    inputs.forEach((input) =>{
+        input.value = ""
+        input.classList.remove("activated")
+        input.style.borderColor ="#c8c4c4"
+    })
+
+    btnConfirm.classList.add("disabled")
+}
+
+form.number.addEventListener('keypress', ()=>{
+    let numberLength = form.number.value.length
 
     if (numberLength === 4 || numberLength === 9 || numberLength === 14) {
-        cardNumber.value += ' '
+        form.number.value += ' '
     }
-    
 })
 
 btnConfirm.addEventListener("click", ()=>{
@@ -106,16 +111,16 @@ inputs.forEach((input) =>{
     })
 })
 
-cardNumber.addEventListener("change", ()=>{
+form.number.addEventListener("change", ()=>{
     const regex = /[a-z]/
-    const numberTest = regex.test(cardNumber.value)
+    const numberTest = regex.test(form.number.value)
     if (numberTest){
         fields[1].classList.add("error-wrong")
-        cardNumber.classList.remove("activated")
-        cardNumber.style.borderColor ='#ff5252'
+        form.number.classList.remove("activated")
+        form.number.style.borderColor ='#ff5252'
     }else{
         fields[1].classList.remove("error-wrong")
-        cardNumber.classList.add("activated")
+        form.number.classList.add("activated")
     }    
 })
 
