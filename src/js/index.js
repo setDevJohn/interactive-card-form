@@ -2,14 +2,10 @@
 const cardForm = document.querySelector("form")
 const inputs = document.querySelectorAll("input")
 const inputsNumbers = [inputs[2], inputs[3], inputs[4]]
-const fields = document.querySelectorAll(".fields")
 const btnConfirm = document.getElementById("btn-confirm")
 const btnContinue = document.getElementById("btn-continue")
 const formData = document.getElementsByClassName("form-data")[0]
 const formComplete = document.getElementsByClassName("completed-state")[0]
-
-console.log(formComplete);
-
 const form = {
     name : document.getElementById("cardholder-name"),
     number : document.getElementById("card-number"),
@@ -17,7 +13,6 @@ const form = {
     year : document.getElementById("date-year"),
     cvc : document.getElementById("cvc")
 }
-
 const card = {
     number : document.getElementById("front-card-number"),
     name : document.getElementById("front-card-name"),
@@ -112,14 +107,15 @@ inputs.forEach((input) =>{
 })
 
 form.number.addEventListener("change", ()=>{
+    const cardNumberField = document.querySelectorAll(".fields")[1]
     const regex = /[a-z]/
     const numberTest = regex.test(form.number.value)
     if (numberTest){
-        fields[1].classList.add("error-wrong")
+        cardNumberField.classList.add("error-wrong")
         form.number.classList.remove("activated")
         form.number.style.borderColor ='#ff5252'
     }else{
-        fields[1].classList.remove("error-wrong")
+        cardNumberField.classList.remove("error-wrong")
         form.number.classList.add("activated")
     }    
 })
