@@ -1,4 +1,3 @@
-
 const cardForm = document.querySelector("form")
 const inputs = document.querySelectorAll("input")
 const inputsNumbers = [inputs[2], inputs[3], inputs[4]]
@@ -6,6 +5,7 @@ const btnConfirm = document.getElementById("btn-confirm")
 const btnContinue = document.getElementById("btn-continue")
 const formData = document.getElementsByClassName("form-data")[0]
 const formComplete = document.getElementsByClassName("completed-state")[0]
+
 const form = {
     name : document.getElementById("cardholder-name"),
     number : document.getElementById("card-number"),
@@ -27,12 +27,15 @@ cardForm.addEventListener('submit', (event)=>{
     event.preventDefault(); 
 })   
 
-cardForm.addEventListener("change", ()=>{
-    if (form.name.classList == "activated" && form.number.classList == "activated" && form.month.classList == "activated" && form.year.classList == "activated" && form.cvc.classList == "activated"){
-        btnConfirm.classList.remove("disabled")
-    }else{
-        btnConfirm.classList.add("disabled")
-    }
+btnConfirm.addEventListener("click", ()=>{
+    formData.style.display = "none"
+    formComplete.style.display = "flex"
+})
+
+btnContinue.addEventListener("click", ()=>{
+    clearCard()
+    formComplete.style.display = "none"
+    formData.style.display = "flex"
 })
 
 function updateCardStatus() {
@@ -73,24 +76,10 @@ function clearCard() {
     btnConfirm.classList.add("disabled")
 }
 
-form.number.addEventListener('keypress', ()=>{
-    let numberLength = form.number.value.length
 
-    if (numberLength === 4 || numberLength === 9 || numberLength === 14) {
-        form.number.value += ' '
-    }
-})
 
-btnConfirm.addEventListener("click", ()=>{
-    formData.style.display = "none"
-    formComplete.style.display = "flex"
-})
 
-btnContinue.addEventListener("click", ()=>{
-    clearCard()
-    formComplete.style.display = "none"
-    formData.style.display = "flex"
-})
+
 
 inputs.forEach((input) =>{
     input.addEventListener("input", (target)=>{
@@ -102,6 +91,19 @@ inputs.forEach((input) =>{
             target.path[1].classList.remove("error-blank") 
             input.classList.add("activated")
             input.style.borderColor ='#6448fe'
+        }
+    })
+})
+
+inputsNumbers.forEach((input) =>{
+    input.addEventListener("change", (target)=>{
+        if (isNaN(input.value)) {
+            target.path[1].classList.add("error-wrong")
+            input.classList.remove("activated")
+            input.style.borderColor ='#ff5252'
+        }else{
+            target.path[1].classList.remove("error-wrong")
+            input.classList.add("activated")
         }
     })
 })
@@ -120,15 +122,18 @@ form.number.addEventListener("change", ()=>{
     }    
 })
 
-inputsNumbers.forEach((input) =>{
-    input.addEventListener("change", (target)=>{
-        if (isNaN(input.value)) {
-            target.path[1].classList.add("error-wrong")
-            input.classList.remove("activated")
-            input.style.borderColor ='#ff5252'
-        }else{
-            target.path[1].classList.remove("error-wrong")
-            input.classList.add("activated")
-        }
-    })
+form.number.addEventListener('keypress', ()=>{
+    let numberLength = form.number.value.length
+
+    if (numberLength === 4 || numberLength === 9 || numberLength === 14) {
+        form.number.value += ' '
+    }
+})
+
+cardForm.addEventListener("change", ()=>{
+    if (form.name.classList == "activated" && form.number.classList == "activated" && form.month.classList == "activated" && form.year.classList == "activated" && form.cvc.classList == "activated"){
+        btnConfirm.classList.remove("disabled")
+    }else{
+        btnConfirm.classList.add("disabled")
+    }
 })
