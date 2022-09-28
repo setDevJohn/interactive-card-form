@@ -1,8 +1,8 @@
-# Projeto Pokémon Slider
-Desafio feito no curso DevQuest, um slider de uma pokédex que passa cards de pokémons.
+# Project Interactive Card
+Desafio feito pelo site do frontend mentor, um formulário que vai atualizando as informações preenchidas nele, em um cartão modelo ao lado automaticamente.
 
 ## 🔗 Acesso ao projeto
-[<img src="src/gif/tela.gif">](https://jhonyfreitasdev.github.io/projeto-pokemon-slider/)
+[<img src="src/gif/tela.gif">](https://jhonyfreitasdev.github.io/project-interactive-card/)
 
 ## 🛠 Skills
 <div style="display: inline_block"><br>
