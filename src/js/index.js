@@ -76,11 +76,6 @@ function clearCard() {
     btnConfirm.classList.add("disabled")
 }
 
-
-
-
-
-
 inputs.forEach((input) =>{
     input.addEventListener("input", (target)=>{
         if (!input.value){
