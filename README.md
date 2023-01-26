@@ -2,6 +2,8 @@
 Desafio feito pelo site do frontend mentor, um formulário que vai atualizando as informações preenchidas nele, em um cartão modelo ao lado automaticamente.
 
 ## 🔗 Acesso ao projeto
+<a href="https://jhonyfreitasdev.github.io/project-interactive-card/">Clique aqui para ir para a página</a>
+
 [<img src="src/gif/tela.gif">](https://jhonyfreitasdev.github.io/project-interactive-card/)
 
 ## 🛠 Skills
