@@ -122,6 +122,7 @@
 }
 .card-form .form-data .btn-confirm,
 .card-form .completed-state .btn-continue{
+    cursor: pointer;
     background-color: #21092f;
     color: #ffffff;
     font-size: 1.7rem;
@@ -166,5 +167,6 @@
     font-size: 1.7rem;
 }
 .card-form .completed-state .btn-continue{
+    cursor: pointer;
     width: 300px;   
 }
