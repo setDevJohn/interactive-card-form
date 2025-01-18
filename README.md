@@ -2,9 +2,9 @@
 Desafio feito pelo site do frontend mentor, um formulário que vai atualizando as informações preenchidas nele, em um cartão modelo ao lado automaticamente. E possui validação de campos numéricos e vazios.
 
 ## 🔗 Acesso ao projeto
-<a href="https://jhonyfreitasdev.github.io/project-interactive-card/">Clique aqui para ir para a página</a>
+<a href="https://setdevjohn.github.io/interactive-card-form/">Clique aqui para ir para a página</a>
 
-[<img src="src/gif/tela.gif">](https://jhonyfreitasdev.github.io/project-interactive-card/)
+[<img src="src/gif/tela.gif">](https://setdevjohn.github.io/interactive-card-form/)
 
 ## 🛠 Skills
 <div style="display: inline_block"><br>
